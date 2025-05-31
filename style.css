@@ -120,3 +120,40 @@ h1 {
 #play-again-button:hover {
     background-color: #0056b3;
 }
+
+/* --- ESTILOS PARA MÓVILES --- */
+@media (max-width: 600px) {
+    #reference-image-container {
+        position: relative; /* Cambia a flujo normal del documento */
+        top: auto;          /* Anula posicionamiento absoluto */
+        left: auto;         /* Anula posicionamiento absoluto */
+        width: 120px;       /* Un poco más pequeña en móviles */
+        height: 120px;
+        margin: 10px auto 20px auto; /* Centrada y con margen inferior */
+        /* z-index ya no es tan crítico aquí, pero no molesta */
+    }
+
+    .main-content {
+        margin-top: 0; /* El contenido principal ya no necesita margen superior especial */
+        padding-left: 5px; /* Un poco de padding por si el contenido se pega a los bordes */
+        padding-right: 5px;
+    }
+
+    h1 {
+        font-size: 1.6em; /* Ajusta según tus preferencias */
+        margin-top: 0; /* El espaciado lo da el margen inferior de la imagen de referencia */
+    }
+
+    #level-display {
+        font-size: 0.95em; /* Un poco más pequeño para que quepan los títulos largos */
+        max-width: 100%; /* Puede ocupar todo el ancho disponible del .main-content */
+    }
+
+    /* Ajustar el tamaño del tablero y las piezas si es necesario para pantallas muy pequeñas.
+       Esto es más complejo ya que TILE_SIZE_PX se define en JavaScript.
+       Una solución simple sería reducir un poco el padding del body en pantallas muy estrechas.
+    */
+    body {
+        padding: 10px; /* Menos padding en pantallas pequeñas */
+    }
+}
