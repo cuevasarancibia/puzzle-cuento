@@ -1,0 +1,122 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column; /* Alinea el contenido principal y la imagen de referencia */
+    align-items: center;   /* Centra el .main-content horizontalmente */
+    justify-content: flex-start; /* Alinea el contenido principal al inicio */
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f0f0f0;
+    position: relative; /* Para posicionar la imagen de referencia absoluta al body */
+}
+
+/* Contenedor para la imagen de referencia */
+#reference-image-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 150px; /* Ajusta este tamaño según necesites */
+    height: 150px; /* Mantenlo cuadrado si tus imágenes son cuadradas */
+    border: 3px solid #6c757d; /* Un borde más distintivo */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    background-color: #fff; /* Fondo por si la imagen tarda o falla */
+    padding: 5px; /* Pequeño espacio interno */
+    z-index: 100; /* Asegurar que esté por encima de otros elementos si es necesario */
+}
+
+#reference-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Muestra la imagen completa, manteniendo la proporción */
+}
+
+/* Contenedor principal del juego para centrarlo correctamente */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 600px; /* Limita el ancho máximo del contenido del juego */
+    margin-top: 0; /* Ajustar si la imagen de referencia interfiere con el título */
+}
+
+h1 {
+    margin-bottom: 10px;
+    color: #333;
+    text-align: center;
+}
+
+#level-display {
+    font-size: 1.1em; /* Ligeramente más pequeño para títulos largos */
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #495057; /* Un color de texto más suave */
+    text-align: center;
+    max-width: 90%; /* Que no sea demasiado ancho */
+    line-height: 1.4; /* Mejor legibilidad para texto multilínea */
+    padding: 5px;
+    background-color: #e9ecef; /* Un fondo sutil para el título */
+    border-radius: 5px;
+}
+
+#game-board {
+    display: grid;
+    border: 2px solid #333;
+    background-color: #ccc;
+    position: relative;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.tile {
+    border: 1px solid #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+    background-repeat: no-repeat;
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+.tile:hover:not(.empty) {
+    box-shadow: 0 0 8px rgba(0,0,0,0.6);
+    transform: scale(1.05); /* Un poco más de efecto hover */
+    z-index: 10;
+}
+
+.tile.empty {
+    background-image: none !important;
+    background-color: rgba(204, 204, 204, 0.7);
+    border-color: #aaa;
+    cursor: default;
+    pointer-events: none;
+    box-shadow: none;
+}
+
+#message {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    color: #28a745; /* Verde más brillante para victoria */
+    font-weight: bold;
+    min-height: 1.5em;
+    text-align: center;
+}
+
+#play-again-button {
+    padding: 12px 25px; /* Botón un poco más grande */
+    font-size: 1.1em;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#play-again-button:hover {
+    background-color: #0056b3;
+}
